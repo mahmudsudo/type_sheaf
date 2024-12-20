@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 ring = "0.17.8"
 hex = "0.4.3"
+derive_builder = "0.20.2"

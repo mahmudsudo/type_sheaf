@@ -1,5 +1,5 @@
 #![allow(dead_code)]
-
+use derive_builder::Builder;
 use std::{collections::HashSet, hash::Hash, rc::Rc};
 
 use crate::topology::{OpenSet, PreSheaf, Section, Sheaf, TopologicalSpace};
@@ -65,6 +65,8 @@ impl<T: Eq + Hash + Clone> Skeleton<T> {
 /// This struct of a cell complex contains the collect of cells, the set of
 /// points from each cell composing the complex, and the maximal dimension of
 /// the complex.
+#[derive(Default, Builder)]
+#[builder(setter(into))]
 pub struct CellComplex<T: Eq + Hash + Clone> {
     #[allow(clippy::type_complexity)]
     pub cells: Vec<Rc<dyn Cell<T, Point = Point<T>, OpenSet = HashSet<Point<T>>>>>,
@@ -233,7 +235,7 @@ mod tests {
                     }
                 }
                 if set == self.points {
-                    return true;
+                    true
                 } else if set.is_empty() {
                     return true;
                 } else {
