@@ -1,6 +1,7 @@
 #![allow(dead_code)]
-use derive_builder::Builder;
 use std::{collections::HashSet, hash::Hash, rc::Rc};
+
+use derive_builder::Builder;
 
 use crate::topology::{OpenSet, PreSheaf, Section, Sheaf, TopologicalSpace};
 
